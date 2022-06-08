@@ -1,47 +1,69 @@
+#*****Rock, Paper and Scissors game - Chukwuebuka Kingsley******
 import random
 
 welcome = "Welcome to Rock, Paper and Scissors game"
-print(welcome)
+game_options = ("""
+Game options:
+"R" for Rock 
+"P" for Paper 
+"S" for Scissors
+""")
 
+print(welcome,'\n',game_options)
+
+R = "Rock"
+P = "Paper"
+S = "Scissors"
 
 while True:
+    player = input("Enter your choice: \n" ).upper()
 
-    user_action = input('''
-    Enter a choice - (R for Rock, P for Paper or S for Scissors): 
-    ''').upper()
+    def user_choice():
+        if player == "R":
+            return R
+        elif player == "P":
+            return P
+        elif player == "S":
+            return S
+    
+    def invalid_opt():
+        if player != "R" or player != "P" or player != "S":
+            return player
 
-    actions = ["R", "P", "S"]
-    computer_action = random.choice(actions)
+    def cpu_choice():
+        actions = [R, P, S]
+        cpu = random.choice(actions)
+        return cpu
 
-    print(f"You choose[{user_action}] : CPU choose[{computer_action}]")
+    user_choice = user_choice()
+    cpu_choice = cpu_choice()
+    invalid_opt = invalid_opt()
 
-    if user_action == computer_action:
-        print(f"Both Players Selected {user_action}. It is a draw!")
-    elif user_action == "R":
-        if computer_action == "S":
+    print (f"Player [{user_choice}] : CPU [{cpu_choice}]")
+
+    if user_choice == cpu_choice:
+        print ("It is a Draw")
+    elif user_choice == R:
+        if cpu_choice == S:
             print("Rock crushes scissors! You win!")
         else:
             print("Paper covers rock! You lose!")
-
-    elif user_action == "P":
-        if computer_action == "R":
+    elif user_choice == P:
+        if cpu_choice == R:
             print("Paper covers rock! You win!")
         else:
             print("Scissors cuts paper! You lose!")
-
-    elif user_action == "S":
-        if computer_action == "P":
+    elif user_choice == S:
+        if cpu_choice == P:
             print("Scissors cuts paper! You win!")
         else:
-            print("Rock crushes scissors! You lose!")
-    
-    elif user_action != "R" or user_action !="P" or user_action != "S":
-        print(f"[{user_action}] is not a valid game option. Input a valid game option")
+            print("Rock crushes scissors! You lose!") 
+    elif user_choice != R or user_choice != P or user_choice != S:
+        print(f"[{invalid_opt}] is invalid. Please input a valid game choice \n", 
+        game_options)
 
         continue
 
-    play_again = input("Do you want to play again? (Y/N): ").upper()
+    play_again = input("Do you want to play again? Y/N: ").upper()
     if play_again != "Y":
         break
-
-
