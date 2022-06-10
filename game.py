@@ -60,7 +60,7 @@ while True:
             print("Scissors cuts paper! You win!")
         else:
             print("Rock crushes scissors! You lose!") 
-    elif user_choice != R or user_choice != P or user_choice != S:
+    else:
         print(f"[{invalid_opt}] is invalid. Please input a valid game choice \n", 
         game_options)
         continue
