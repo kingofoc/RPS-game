@@ -43,6 +43,8 @@ while True:
 
     if user_choice == cpu_choice:
         print ("It is a Draw")
+        continue
+
     elif user_choice == R:
         if cpu_choice == S:
             print("Rock crushes scissors! You win!")
@@ -61,7 +63,6 @@ while True:
     elif user_choice != R or user_choice != P or user_choice != S:
         print(f"[{invalid_opt}] is invalid. Please input a valid game choice \n", 
         game_options)
-
         continue
 
     play_again = input("Do you want to play again? Y/N: ").upper()
