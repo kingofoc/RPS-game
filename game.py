@@ -25,6 +25,9 @@ while True:
             return P
         elif player == "S":
             return S
+        else:
+            player != "R" or player != "P" or player != "S":
+            return player
     
     def invalid_opt():
         if player != "R" or player != "P" or player != "S":
@@ -61,7 +64,7 @@ while True:
         else:
             print("Rock crushes scissors! You lose!") 
     else:
-        print(f"[{invalid_opt}] is invalid. Please input a valid game choice \n", 
+        print(f"[{invalid_opt}] is invalid. Please input a valid game option \n", 
         game_options)
         continue
 
