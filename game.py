@@ -28,10 +28,6 @@ while True:
         else:
             player != "R" or player != "P" or player != "S":
             return player
-    
-    def invalid_opt():
-        if player != "R" or player != "P" or player != "S":
-            return player
 
     def cpu_choice():
         actions = [R, P, S]
@@ -40,7 +36,6 @@ while True:
 
     user_choice = user_choice()
     cpu_choice = cpu_choice()
-    invalid_opt = invalid_opt()
 
     print (f"Player [{user_choice}] : CPU [{cpu_choice}]")
 
@@ -64,7 +59,7 @@ while True:
         else:
             print("Rock crushes scissors! You lose!") 
     else:
-        print(f"[{invalid_opt}] is invalid. Please input a valid game option \n", 
+        print(f"[{user_choice}] is invalid. Please input a valid game option \n", 
         game_options)
         continue
 
